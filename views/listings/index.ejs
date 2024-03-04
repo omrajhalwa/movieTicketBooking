@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") %>
+<div>
+    <h3>Filter</h3>
+
+<form action="/filter" method="POST">
+    <div class="mb-3">
+        <label for="language" class="form-label">language</label>
+      <input type="text" placeholder="enter title" name="listing[language]" class="form-control" >
+      <div class="invalid-feedback">
+        Please choose a title.
+      </div>
+
+      <div class="mb-3 ">
+        <button class="btn btn-primary" type="submit">add</button>
+       </div>
+</form>
+</div>
+<div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-3">
+<% for(let listing of allListings){ %>
+    <%  if(listing.language==list.language||list.language=="") {   %>
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+    <div class="card listing-card mt-3" style="padding: 1rem;">
+        <img src="<%=listing.image%>" alt="img" class="card-img-top" style="height: 26rem;">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+            <b> <p class="card-text"><%=listing.title%></p></b>
+      
+            <p class="card-text"></p><%=listing.movieType%>
+
+           
+           </div>
+    </div>
+
+   </a>
+   <%}%>
+
+<%}%>
+
+</div>

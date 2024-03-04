@@ -1,0 +1,103 @@
+
+<%layout("/layouts/boilerplate")%>
+
+<div class="row mt-3">
+   <div class="col-8 offset-2 ">
+
+    <h2>Create New theatreListing</h2>
+    <form action="/listings/<%=listing._id%>/theatres" method="POST" class="row g-3 needs-validation" id="myform" novalidate>
+      <div class="mb-3">
+        <label for="theatrename" class="form-label"> theatrename</label>
+      <input type="text" placeholder="enter  theatrename" name="listing[theatrename]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a  theatrename.
+      </div>
+
+      </div>
+      
+      <div class="mb-3">
+        <label for="floor" class="form-label">floor</label>
+      <input type="text" placeholder="enter floor" name="listing[floor]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a floor.
+      </div>
+
+      </div>
+
+      
+
+      <div class="mb-3">
+        <label for="buildingname" class="form-label">buildingname</label>
+      <input type="text" placeholder="enter buildingname" name="listing[buildingname]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a buildingname.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="place" class="form-label">enter place</label>
+      <input type="text" placeholder="enter place" name="listing[place]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a place.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="city" class="form-label">city</label>
+      <input type="text" placeholder="enter city" name="listing[city]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a city.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="state" class="form-label">state</label>
+      <input type="text" placeholder="enter state" name="listing[state]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a state.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label">country</label>
+      <input type="text" placeholder="enter country" name="listing[country]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a country.
+      </div>
+
+      </div>
+
+
+      <div class="mb-3">
+        <label for="seatCapacity" class="form-label">seatCapacity</label>
+      <input type="number" placeholder="enter seatCapacity" name="listing[seatCapacity]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a seatCapacity.
+      </div>
+
+      </div>
+      
+      <div class="mb-3">
+        <label for="availableDate" class="form-label">availableDate</label>
+      <input type="date" placeholder="" name="listing[availableDate]"  class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a seatCapacity.
+      </div>
+
+      </div>
+
+      <div class="container text-center mt-2" id="weAddButton">
+        <button   onclick="addMoreDates()" class="btn btn-primary btn-sm" type="button" >Add Dates</button>
+      </div>
+
+      <div class="mb-3 " id="submitButton">
+       <button class="btn btn-primary" type="submit">add</button>
+      </div>
+    </form>
+
+</div>
+</div>    

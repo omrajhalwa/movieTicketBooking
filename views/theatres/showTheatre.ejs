@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<div>
+
+    <%if(!obj.date){%>
+      <p>please select date</p>
+    <form action="/listings/<%=listing._id%>/availableTheatre" method="POST">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">submit date</button>
+    <form>
+        <%}%>
+
+   <%for(theatre of listing.theatres){%>
+
+    <%if(theatre.availableDate.includes(obj.date)){%>
+        <div class="card mb-3" style="background-color: antiquewhite;height: 10rem;">
+            <p class="card-text"><b><%=theatre.theatrename%>,<%=theatre.buildingname%>,<%=theatre.city%></b></p>
+             <form action="/listings/<%=listing._id%>/theatres/<%=theatre._id%>/seatlayout" method="POST">
+                     <input type="date" name="date" value="<%=obj.date%>" style="display: none;">
+                     <button type="submit">10:30</button>
+            </form>
+        </div>
+    <%}%>
+   <% }%>
+
+</div>

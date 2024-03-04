@@ -1,0 +1,90 @@
+<%layout("/layouts/boilerplate")%>
+
+<div class="row mt-3">
+   <div class="col-8 offset-2">
+
+    <h2>Create New cast</h2>
+    <form action="/listings/<%=list._id%>/casts" method="POST" class="row g-3 needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="image" class="form-label">image</label>
+      <input type="text" placeholder="enter image" name="cast[image]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a image.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="knownAs" class="form-label">knownAs</label>
+      <input type="text" placeholder="enter knownAs" name="cast[knownAs]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a knownAs.
+      </div>
+
+      </div>
+
+      
+
+
+      <div class="mb-3">
+        <label for="occupation" class="form-label">occupation</label>
+      <input type="text" placeholder="enter occupation" name="cast[occupation]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a occupation.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="born" class="form-label">born</label>
+      <input type="text" placeholder="born" name="cast[born]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a born.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="birthPlace" class="form-label">birthPlace</label>
+      <input type="text" placeholder="enter birthPlace" name="cast[birthPlace]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a birthPlace.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="spouse" class="form-label">spouse</label>
+      <input type="text" placeholder="enter spouse" name="cast[spouse]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a spouse.
+      </div>
+
+      </div>
+
+
+      <div class="mb-3">
+        <label for="children" class="form-label">children</label>
+      <input type="text" placeholder="enter children" name="cast[children]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a children.
+      </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="about" class="form-label">about</label>
+      <input type="text" placeholder="enter about" name="cast[about]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a about.
+      </div>
+
+      </div>
+
+
+      <div class="mb-3 ">
+       <button class="btn btn-primary" type="submit">add</button>
+      </div>
+    </form>
+
+</div>
+</div>    

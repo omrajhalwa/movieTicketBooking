@@ -1,0 +1,99 @@
+
+<%layout("/layouts/boilerplate")%>
+
+<div class="row mt-3">
+   <div class="col-8 offset-2">
+
+    <h2>Create New Listing</h2>
+    <form action="/listings" method="POST" class="row g-3 needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+      <input type="text" placeholder="enter title" name="listing[title]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a title.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">description</label>
+      <input type="text" placeholder="enter description" name="listing[description]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a description.
+      </div>
+
+      </div>
+
+      
+
+      <div class="mb-3">
+        <label for="language" class="form-label">language</label>
+      <input type="text" placeholder="enter language" name="listing[language]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a language.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">enter image url</label>
+      <input type="text" placeholder="enter image" name="listing[image]" class="form-control" required >
+      <div class="invalid-feedback">
+        Please choose a image.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="rating" class="form-label">rating</label>
+      <input type="number" placeholder="enter rating" name="listing[rating]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a rating.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="duration" class="form-label">duration</label>
+      <input type="text" placeholder="enter duration" name="listing[duration]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a duration.
+      </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="movieType" class="form-label">movieType</label>
+      <input type="text" placeholder="enter movieType" name="listing[movieType]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a movieType.
+      </div>
+
+      </div>
+
+
+      <div class="mb-3">
+        <label for="certifiedRating" class="form-label">certifiedRating</label>
+      <input type="text" placeholder="enter certifiedRating" name="listing[certifiedRating]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a certifiedRating.
+      </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="releaseDate" class="form-label">releaseDate</label>
+      <input type="text" placeholder="enter releaseDate" name="listing[releaseDate]" class="form-control" required>
+      <div class="invalid-feedback">
+        Please choose a releaseDate.
+      </div>
+
+      </div>
+
+
+      <div class="mb-3 ">
+       <button class="btn btn-primary" type="submit">add</button>
+      </div>
+    </form>
+
+</div>
+</div>    
