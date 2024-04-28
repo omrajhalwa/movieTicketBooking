@@ -3,6 +3,7 @@ const app=express();
 const mongoose=require("mongoose");
 let port=8080;
 //what type of database you want type folder name below here
+const MONGO_CLOUD_URL="mongodb+srv://omraj72470:omraj@cluster0.ozento3.mongodb.net/";
 const MONGO_URL="mongodb://127.0.0.1:27017/movieTicketBooking";
 const Listing=require("./models/listing.js");
 const Review=require("./models/review.js");
@@ -43,7 +44,7 @@ main().then(()=>{
 });
 
 async function main(){
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(MONGO_CLOUD_URL);
 }
 
 // MONGO CONNECTION END....................
