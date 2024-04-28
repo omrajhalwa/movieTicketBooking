@@ -1,9 +1,143 @@
 <% layout("/layouts/boilerplate") %>
+
+
+
+
+<style>
+
+body{
+    
+}
+
+.videoDescription{
+    position: absolute;
+    z-index: 1000;
+    top: 22rem;
+    width: 30rem;
+    text-align: center;
+    margin-left: 3rem;
+
+}
+.videoDescription h1{
+ color: aqua;
+ font-size: 3rem;
+    
+}
+
+.videoDescription p{
+ 
+ font-size: 1rem;
+    
+}
+         .video-container {
+            background-color: rgb(0, 0, 0);
+            
+            width: 100%;
+            
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 7px; /* Adjust this to match border radius */
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+        
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Change this to match your background */
+            opacity: 0.3; /* Adjust the opacity to your preference */
+            z-index: 2;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            color: aqua;
+            object-fit: cover;
+            
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -63px;
+            left: -63px;
+            right: -63px;
+            bottom: -63px;
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px solid transparent;
+            border-radius: 10px; /* Adjust this to match border radius */
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5) inset;
+            backdrop-filter: blur(10px);
+        }
+
+        .upcomingMovies{
+            position: relative !important;
+            top: -13rem;
+            z-index: 10;
+        }
+
+
+        .userHome{
+            background-color: aliceblue;
+             height: 32rem;
+              width: 20rem;
+              top: 6rem;
+              margin-left:70rem;
+              position:absolute;
+              z-index: 10000;
+              border-radius: 2rem;
+             
+        }
+        .userHome ul{
+            padding: 10px;
+        }
+        .userHome ul li{
+            margin-top: 1rem;
+            color: black;
+            font-size: 1.5rem;
+            font-weight: bold;
+            
+        
+            list-style: none;
+            border: 0.01rem solid black;
+
+        }
+      
+
+</style>
+
+
 <div>
-    <h3>Filter</h3>
+    <!-- <h3>Filter</h3> -->
 
 <form action="/filter" method="POST">
-    <div class="mb-3">
+    <div class="mb-3" style="display: none;">
         <label for="language" class="form-label">language</label>
       <input type="text" placeholder="enter title" name="listing[language]" class="form-control" >
       <div class="invalid-feedback">
@@ -13,27 +147,262 @@
       <div class="mb-3 ">
         <button class="btn btn-primary" type="submit">add</button>
        </div>
+      </div>
 </form>
 </div>
-<div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-3">
+<!-- <div class="embed-responsive embed-responsive-21by9" style="position: fixed; top: 0; left: 0; width: 100% !important; height: 100vw !important; z-index: 9999;">
+    <iframe class="embed-responsive-item" style="position: fixed; top: 0; left: 0; width: 100% !important; height: 100% !important; " src="https://www.youtube.com/embed/8zBAw3_AXe8?si=xx0sRY8PhyFvgJBE&mute=1&autoplay=1&controls=0&showinfo=0&modestbranding=0" title="YouTube video player" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+</div> -->
+
+
+
+<div class="video-container" style="height: 51rem;width: 100%; " >
+<div class="video-wrapper embed-responsive embed-responsive-16by9" style="height: 51rem;width: 100%;">
+  <iframe width="100%" height="100%" id="vid0" src="https://www.youtube.com/embed/k-TO2nFRIzQ?si=xx0sRY8PhyFvgJBE&mute=1&autoplay=1&controls=0&showinfo=0&modestbranding=0" title="YouTube video player" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+
+<iframe class="embed-responsive-item" id="vid1" width="100%" height="100%" style="display: none;" src="https://www.youtube.com/embed/8zBAw3_AXe8?si=xx0sRY8PhyFvgJBE&mute=1&autoplay=1&controls=0&showinfo=0&modestbranding=0" title="YouTube video player" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+ <iframe width="100%" height="100%" id="vid2" style="display: none;" src="https://www.youtube.com/embed/a6VVrAZUnsc?si=xx0sRY8PhyFvgJBE&mute=1&autoplay=1&controls=0&showinfo=0&modestbranding=0" title="YouTube video player" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+</div>
+<div class="overlay"></div>
+<div class="border-overlay"></div>
+</div>
+
+
+
+<div class="videoDescription" id="text2" style="display: none;">
+    <div><h1>Avatar</h1></div>
+    <div><p>Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment and distributed by 20th Century Studios, as well as associated merchandise, video games and theme park attractions</p></div>
+   </div>
+<div class="videoDescription" id="text1" style="display: none;">
+    <div><h1>The Dark Knight</h1></div>
+    <div><p>The plot follows the vigilante Batman, police lieutenant James Gordon, and district attorney Harvey Dent, who form an alliance to dismantle organized crime in Gotham City.</p></div>
+
+</div>
+<div class="videoDescription" id="text0" >
+    <div><h1>Top Gun</h1></div>
+    <div><p>Top Gun is an American action drama multimedia franchise based on the 1983 article "Top Guns" by Ehud Yonay, which was adapted into the eponymous 1986 film, written by Jim Cash and Jack Epps </p></div>
+</div>
+
+<div class="userHome" style="display: none;">
+    <ul>
+        <li><i class="fa-regular fa-circle-user" style="font-size: 4rem;"></i>       <%=currUser.username%></li>
+        
+        <li><a class="" href="/users/myorders">Booked Ticket</a></li>
+        
+        <li><a class="" href="/logout"><b>Log out</b></a></li>
+    </ul>
+
+</div>
+
+
+<div class="upcomingMovies swiper-container " style="overflow: hidden;" >
+    <h1 style="margin-left: 2rem;">Upcoming Movies</h1>
+
+<div class="swiper-wrapper mt-3 m-4" >
 <% for(let listing of allListings){ %>
     <%  if(listing.language==list.language||list.language=="") {   %>
+        <div class="swiper-slide">
     <a href="/listings/<%=listing._id%>" class="listing-link">
-    <div class="card listing-card mt-3" style="padding: 1rem;">
-        <img src="<%=listing.image%>" alt="img" class="card-img-top" style="height: 26rem;">
-        <div class="card-img-overlay"></div>
-        <div class="card-body">
-            <b> <p class="card-text"><%=listing.title%></p></b>
-      
-            <p class="card-text"></p><%=listing.movieType%>
-
-           
-           </div>
+    <div class=" mt-3" style="padding: 0.51rem;height: 20rem;">
+        <img src="<%=listing.image%>" alt="img" class="" style="height: 100%;">
+        
     </div>
 
    </a>
+  </div>
    <%}%>
 
 <%}%>
 
 </div>
+
+	<!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+
+
+<div class="upcomingMovies swiper-container" style="overflow: hidden;">
+    <h1 style="margin-left: 2rem;">Top Rated Movies</h1>
+
+<div class="swiper-wrapper mt-3 m-4" >
+<% for(let listing of allListings){ %>
+    <%  if(listing.language==list.language||list.language=="") {   %>
+        <div class="swiper-slide">
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+    <div class=" mt-3" style="padding: 1rem;height: 20rem;">
+        <img src="<%=listing.image%>" alt="img" class="" style="height: 100%;">
+        
+    </div>
+
+   </a>
+  </div>
+   <%}%>
+
+<%}%>
+
+</div>
+
+	<!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+
+
+
+<div class="upcomingMovies swiper-container" style="overflow: hidden;">
+    <h1 style="margin-left: 2rem;">Romantic Movies</h1>
+
+<div class="swiper-wrapper mt-3 m-4" >
+<% for(let listing of allListings){ %>
+    <%  if(listing.language==list.language||list.language=="") {   %>
+        <div class="swiper-slide">
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+    <div class=" mt-3" style="padding: 1rem;height: 20rem;">
+        <img src="<%=listing.image%>" alt="img" class="" style="height: 100%;">
+        
+    </div>
+
+   </a>
+  </div>
+   <%}%>
+
+<%}%>
+
+</div>
+
+	<!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+
+
+<div class="upcomingMovies swiper-container" style="overflow: hidden;" >
+    <h1 style="margin-left: 2rem;">Action Movies</h1>
+
+<div class="swiper-wrapper mt-3 m-4" >
+<% for(let listing of allListings){ %>
+    <%  if(listing.language==list.language||list.language=="") {   %>
+        <div class="swiper-slide">
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+    <div class=" mt-3" style="padding: 1rem;height: 20rem;">
+        <img src="<%=listing.image%>" alt="img" class="" style="height: 100%;">
+        
+    </div>
+
+   </a>
+  </div>
+   <%}%>
+
+<%}%>
+
+</div>
+
+	<!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  	var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 7,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+
+
+    // video slideshow...............................................................................
+
+let slideIndex=0;
+let totalSlide=3;
+let interval=15000;
+let prevIndex=2;
+let time=0
+setInterval(()=>{
+    console.log(time);
+
+console.log(slideIndex);
+    slideIndex++;
+    if(slideIndex==totalSlide){
+        slideIndex=0;
+    }
+
+    if(slideIndex==0){
+        prevIndex=2;
+    }else{
+        prevIndex=slideIndex-1;
+    }
+    
+    let vidId=document.getElementById(`vid${slideIndex}`);
+    let prevId=document.getElementById(`vid${prevIndex}`);
+    let textId=document.getElementById(`text${slideIndex}`);
+    let textpreId=document.getElementById(`text${prevIndex}`);
+
+    
+   
+if(time==90) {
+        // Video has ended, you can perform any actions here
+        console.log("Video ended");
+        let vid1Id=document.getElementById(`vid0`);
+     let vid2Id=document.getElementById(`vid1`);
+     let vid3Id=document.getElementById(`vid2`);
+     let text1Id=document.getElementById(`text0`);
+     let text2Id=document.getElementById(`text1`);
+     let text3Id=document.getElementById(`text2`);
+  vid1Id.style.display="block";
+  vid2Id.style.display="none";
+  vid3Id.style.display="none";
+  text1Id.style.display="block";
+  text2Id.style.display="none";
+  text3Id.style.display="none";
+    let video1=vid1Id.src;
+    vid1Id.src = video1;
+    let video2=vid2Id.src;
+    vid2Id.src = video2;
+    let video3=vid3Id.src;
+    vid3Id.src = video3;
+    time=0;
+
+
+}else{
+// Start playing the video
+    prevId.style.display="none";
+    vidId.style.display="block";
+    textId.style.display="block";
+    textpreId.style.display="none";
+    time+=15;
+}
+},interval);
+
+
+//...................................................................................................
+
+
+</script>

@@ -8,7 +8,7 @@ const {isLoggedIn, isOwner,validateListing}=require("../middleware.js");
 
 
 router.route("/")
-.get(wrapAsync(listingController.index))
+.get(isLoggedIn,wrapAsync(listingController.index))
 .post(validateListing,wrapAsync(listingController.createListing));
 
 

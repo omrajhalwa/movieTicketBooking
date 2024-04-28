@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0% !important;
+    padding: 0% !important;
+    background: linear-gradient(120deg,#000000, #2e2e2c,rgb(0, 0, 0)) !important;
+    backdrop-filter: blur(10px) !important;
+      color: aliceblue !important;
+      font-family: Poppins !important;
+}
+
+
+
+
+
+.navbar{
+    height:5rem;
+    color: aliceblue !important;
+    background-color: black;
+}
+
+
+
+/* footer */
+
+.f-info{
+    height: 12rem;
+    background-color: black;
+    color: white;
+    width: 100% !important;
+    margin-top: 1rem;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.f-info-links,.f-info-socials,.f-info-brand{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+
+.f-info-socials i{
+    font-size: 2rem;
+    margin-right: 1.5rem;
+}
+
+.f-info-brand {
+    font-weight: 700;
+}

@@ -1,0 +1,68 @@
+
+
+<style>
+    .navi i{
+      font-size: 3rem;
+      margin-left: 1rem;
+    }
+
+    .navi{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: rgb(216, 236, 224) ;
+      position: absolute ;
+      z-index: 100;
+      width: 100%;
+   
+    }
+
+    .navi a{
+      color: rgb(255, 255, 255) !important;
+      margin: 1rem;
+      text-decoration: none;
+      font-size: larger;
+    }
+    .brand{
+      font-weight: 700;
+      font-size: 3rem !important;
+    }
+
+    .loginbtn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem;
+      text-decoration: none;
+    }
+  
+</style>
+
+
+
+<div class="navi">
+    <a class="brand" href="/listings" style="color: rgb(254, 115, 16) !important;">MOVIETIX</a>
+ 
+   
+      
+          <a class="" href="/listings"><b>Explore</b><span class="sr-only">(current)</span></a>
+      
+    
+  
+
+
+  
+
+    <div class="loginbtn ms-auto">
+        <a class="" href="/listings/new"><b>Add New Movie</b></a>
+       <% if(!currUser){ %>
+        <a class="" href="/signup"><b>Sign Up</b></a>
+        <a class="" href="/login"><b>Log in</b></a>
+       <% } %>
+       <div><i class="fa-regular fa-circle-user" style="color: rgb(254, 115, 16) !important;"></i></div>
+       <% if(currUser){ %>
+        <a class="" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+</div>

@@ -1,0 +1,417 @@
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+   background-color: black;
+ 
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container{
+    width: 100% !important;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.video-container {
+
+
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+  }
+  .video-container iframe {
+   
+    width: 100%;
+    height: 100%;
+ 
+  }
+
+  #vid0{
+    display: block;
+  }
+
+  #vid1{
+    display: none;
+  }
+
+  #vid2{
+    display: none;
+  }
+
+  #vid3{
+    display: none;
+  }
+
+  .content{
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 55%;
+    left: 1%;
+    z-index: 999;
+    color: rgb(14, 11, 1);
+    text-align: center;
+  }
+
+
+  .navbar-nav .nav-link {
+    padding: .5rem 1rem;
+  }
+
+  .navbar{
+    position: absolute;
+    z-index: 1000;
+    margin-left: 2rem;
+    color: white !important;
+    text-decoration: none;
+  }
+
+  .navbar a{
+    color: white;
+    font-size: large;
+  }
+
+
+.movie{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+  max-width: 1350px;
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  margin-left:2rem ;
+  color: white;
+  
+  
+}
+
+.wrapper2{
+    max-width: 1350px;
+    width: 100%;
+    position: absolute;
+    top: 150%;
+    margin-left:2rem ;
+    color: white;
+}
+.wrapper i ,.wrapper2 i{
+    color: black;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+  z-index: 1000;
+}
+.wrapper i:active,.wrapper2 i:active{
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper i:first-child, .wrapper2 i:first-child {
+  left: -22px;
+}
+.wrapper i:last-child, .wrapper2 i:last-child{
+  right: -22px;
+}
+.wrapper .carousel , .wrapper2 .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 6) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 300px;
+  width: 200px;
+  list-style: none;
+  background: #fff;
+  cursor: pointer;
+  padding-bottom: 15px;
+  flex-direction: column;
+  border-radius: 8px;
+  color: black;
+}
+.carousel .card .img {
+  background: #8B53FF;
+  height: 80%;
+  width: 100%;
+  
+}
+.card .img img {
+    height: 100%;
+    width: 100%;
+
+  object-fit: fill;
+ 
+}
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 30px 0 5px;
+}
+.carousel .card span {
+  color: #6A6D78;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+</style>
+
+
+
+<div class="row">
+    <div class="col-12">
+      <div class="video-container" id="vid0">
+        <iframe src="https://www.youtube.com/embed/w_N6d4ec79c?autoplay=1&mute=1&fs=1&controls=0&modestbranding=1&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <div class="content">
+            <div class="title"><h1>Teri Baaton Mein Aisa Uljha Jiya</h1></div>
+            <div class="language">Hindi</div>
+            <div class="des">soniovnfioniongiofviofnvsfiovsio</div>
+            <div class="movietype">Romantic</div>
+            <button class="btn btn-primary"><b>Book now</b></button>
+        </div>
+      </div>
+
+      <div class="video-container" id="vid1">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Yxe-mIVIwM4?autoplay=1&mute=1&fs=1&controls=0&modestbranding=1&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <div class="content">
+              <div class="title"><h1>Shaitaan</h1></div>
+              <div class="language">Hindi</div>
+              <div class="des">soniovnfioniongiofviofnvsfiovsio</div>
+              <div class="movietype">Romantic</div>
+              <button class="btn btn-primary"><b>Book now</b></button>
+          </div>
+        </div>
+
+        <div class="video-container" id="vid2">
+          <video src="https://drive.google.com/file/d/1_ZpGZRh0nNWaZrMlcubMEVDPvUDBFUE2/view?usp=drive_link"  autoplay muted>
+            
+          </video>
+
+          <div class="content">
+              <div class="title"><h1>Maidaan</h1></div>
+              <div class="language">Hindi</div>
+              <div class="des">soniovnfioniongiofviofnvsfiovsio</div>
+              <div class="movietype">Romantic</div>
+              <button class="btn btn-primary"><b>Book now</b></button>
+          </div>
+        </div>
+
+        <div class="video-container" id="vid3">
+          <video src="https://drive.google.com/file/d/1hGGcRykPKzpMf8UWyPSGu87OU7vcg9uE/view?usp=drive_link"  autoplay muted>
+            
+          </video>
+
+          <div class="content">
+              <div class="title"><h1>Yodha</h1></div>
+              <div class="language">Hindi</div>
+              <div class="des">soniovnfioniongiofviofnvsfiovsio</div>
+              <div class="movietype">Romantic</div>
+              <button class="btn btn-primary"><b>Book now</b></button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+
+    
+
+
+  
+
+
+// video slideshow...............................................................................
+
+let slideIndex=0;
+let totalSlide=4;
+let interval=10000;
+let prevIndex=3;
+setInterval(()=>{
+
+console.log(slideIndex);
+    slideIndex++;
+    if(slideIndex==totalSlide){
+        slideIndex=0;
+    }
+
+    if(slideIndex==0){
+        prevIndex=3;
+    }else{
+        prevIndex=slideIndex-1;
+    }
+    
+    let vidId=document.getElementById(`vid${slideIndex}`);
+    let prevId=document.getElementById(`vid${prevIndex}`);
+   
+vidId.addEventListener("ended", function() {
+        // Video has ended, you can perform any actions here
+        console.log("Video ended");
+     
+    vidId.currentTime = 0; // Set the playback position to the beginning
+    vidId.play();
+});// Start playing the video
+    prevId.style.display="none";
+    vidId.style.display="block";
+},interval);
+
+
+//...................................................................................................
+
+
+
+// movieslideshow.........................................
+const wrapper = document.querySelector(".wrapper");
+
+const carousel = document.querySelector(".carousel");
+const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+const arrowBtns = document.querySelectorAll(".wrapper i");
+
+const carouselChildrens = [...carousel.children];
+
+let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
+
+// Get the number of cards that can fit in the carousel at once
+let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+// Insert copies of the last few cards to beginning of carousel for infinite scrolling
+carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+});
+
+// Insert copies of the first few cards to end of carousel for infinite scrolling
+carouselChildrens.slice(0, cardPerView).forEach(card => {
+    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+});
+
+// Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
+carousel.classList.add("no-transition");
+carousel.scrollLeft = carousel.offsetWidth;
+carousel.classList.remove("no-transition");
+
+// Add event listeners for the arrow buttons to scroll the carousel left and right
+arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+    });
+});
+
+
+const dragStart = (e) => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    // Records the initial cursor and scroll position of the carousel
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+}
+
+const dragging = (e) => {
+    if(!isDragging) return; // if isDragging is false return from here
+    // Updates the scroll position of the carousel based on the cursor movement
+    carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+}
+
+const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+}
+
+const infiniteScroll = () => {
+    // If the carousel is at the beginning, scroll to the end
+    if(carousel.scrollLeft === 0) {
+        carousel.classList.add("no-transition");
+        carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+        carousel.classList.remove("no-transition");
+    }
+    // If the carousel is at the end, scroll to the beginning
+    else if(Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+        carousel.classList.add("no-transition");
+        carousel.scrollLeft = carousel.offsetWidth;
+        carousel.classList.remove("no-transition");
+    }
+
+    // Clear existing timeout & start autoplay if mouse is not hovering over carousel
+    clearTimeout(timeoutId);
+    if(!wrapper.matches(":hover")) autoPlay();
+ 
+}
+
+const autoPlay = () => {
+    if(window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
+    // Autoplay the carousel after every 2500 ms
+    timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
+}
+autoPlay();
+
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("mousemove", dragging);
+document.addEventListener("mouseup", dragStop);
+carousel.addEventListener("scroll", infiniteScroll);
+wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+wrapper.addEventListener("mouseleave", autoPlay);
+
+  </script>
+

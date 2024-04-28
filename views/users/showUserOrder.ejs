@@ -1,0 +1,37 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  .card ul li {
+    display: flex;
+    justify-content: space-evenly;
+  }
+</style>
+
+<!-- <h1>your orders</h1> -->
+<!-- <h2><%=currUser%></h2>  -->
+<h2><%=formattedDate%></h2>
+<div class="card " style="width: 100%;">
+  <h1>Your orders</h1>
+    <ul class="list-group list-group-flush " style="">
+      <h2> Booking</h2>
+      <li class="list-group-item"><h3>Theatre Name</h3> <h3>Date</h3> <h3>Time</h3> <h3>Seat no</h3></li>
+      <%for(let theatre in currUser.bookedTicket){%>
+        
+        
+         <%for(let key in currUser.bookedTicket[theatre]){%>
+          
+          
+             <%for(let timee in currUser.bookedTicket[theatre][key]){%>
+              <li class="list-group-item"><h4><%=theatre%></h4> <h4><%=key%></h4> <h4><%=timee%></h4> <h4><%=currUser.bookedTicket[theatre][key][timee]%></h4></li>
+             
+                
+              <%}%>
+          <%}%>
+      <%}%>
+
+      
+
+    </ul>
+   
+  </div>

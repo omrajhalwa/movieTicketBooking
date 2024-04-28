@@ -7,6 +7,9 @@ const userSchema=new Schema({
         require:true,
     }
     //username,hashing,salting, password is default have in 
+    ,bookedTicket:{
+        type:Object
+    }
 })
 
 userSchema.plugin(passportLocalMongoose);

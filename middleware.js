@@ -4,6 +4,7 @@ const {listingSchema}=require("./schema.js");
 const ExpressError=require("./utils/ExpressError.js");
 const {reviewSchema}=require("./schema.js");
 
+
 module.exports.isLoggedIn=(req,res,next)=>{
   // console.log(req.path,"..",req.originalUrl);
    if(!req.isAuthenticated()){
@@ -73,3 +74,4 @@ module.exports.isReviewAuthor=async(req,res,next)=>{
 
   next();
 };
+

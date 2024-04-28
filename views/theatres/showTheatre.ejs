@@ -1,25 +1,168 @@
-<% layout("/layouts/boilerplate") %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/css/rating.css">
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg,#2980b9, #8e44ad);
+ 
+  }
+  .center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  }
+  .center h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+  }
+  .center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+  }
+  .txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+  }
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+  }
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+    width: 100%;
+  }
+  .pass{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+  }
+  .pass:hover{
+    text-decoration: underline;
+  }
+  input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+  }
+  .signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+  }
+  .signup_link a{
+    color: #2691d9;
+    text-decoration: none;
+  }
+  .signup_link a:hover{
+    text-decoration: underline;
+  }
+  
+  </style>
 
 
 <div>
 
     <%if(!obj.date){%>
-      <p>please select date</p>
-    <form action="/listings/<%=listing._id%>/availableTheatre" method="POST">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
-        <button type="submit">submit date</button>
-    <form>
+   
+
+        <div class="center">
+            <h1>Please Select Date</h1>
+            <form action="/listings/<%=listing._id%>/availableTheatre" method="POST">
+              <div class="txt_field">
+                <input type="date" id="date" name="date" required>
+                <span></span>
+                <label for="date"></label>
+              </div>
+              <input type="submit" value="Submit Date">
+            </form>
+          </div>
+        <%}%>
+
+        <%if(obj.date){%>
+           <div class="card" style="height: 10rem;margin: 1rem;padding: 1rem;">
+            <h1 style="color: red;"><%=listing.title%> - <%=listing.language%> </h1>
+            <h4 style="margin-left: 3rem;"><%=listing.certifiedRating%>   , <%=listing.movieType%> </h4>
+            <h5 style="margin-left: 2rem;">Date - <%=obj.date%></h5>
+           </div>
+           
+            
+           
+
         <%}%>
 
    <%for(theatre of listing.theatres){%>
 
     <%if(theatre.availableDate.includes(obj.date)){%>
-        <div class="card mb-3" style="background-color: antiquewhite;height: 10rem;">
-            <p class="card-text"><b><%=theatre.theatrename%>,<%=theatre.buildingname%>,<%=theatre.city%></b></p>
+        <div class="card mb-3" style="background-color: white;height: 10rem; border-radius: 2rem; margin: 3rem; padding: 1rem;">
+            <h3 class="card-text"><b><%=theatre.theatrename%>,<%=theatre.buildingname%>,<%=theatre.city%></b></h3>
              <form action="/listings/<%=listing._id%>/theatres/<%=theatre._id%>/seatlayout" method="POST">
-                     <input type="date" name="date" value="<%=obj.date%>" style="display: none;">
-                     <button type="submit">10:30</button>
+                     <input type="date" name="data[date]" value="<%=obj.date%>" style="display: none;">
+                     <div style="display: flex; justify-content: space-evenly; padding: 1rem;">
+                     <button class="btn btn-primary" type="submit" name="data[time]" value="10:30">10:30</button>
+                     <button class="btn btn-primary" type="submit" name="data[time]" value="12:30">12:30</button>
+                     <button class="btn btn-primary" type="submit" name="data[time]" value="3:30">3:30</button>
+                     <button class="btn btn-primary" type="submit" name="data[time]" value="7:30">7:30</button>
+                    </div>
             </form>
         </div>
     <%}%>
