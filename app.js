@@ -60,7 +60,7 @@ const store=MongoStore.create({
   //  store: new MongoStore({ mongooseConnection: mongoose.connection }),
     mongoUrl:MONGO_CLOUD_URL,
     crypto:{
-      secret:process.env.SECRET ,
+      secret:"hello gf" ,
     },
     touchAfter:24*3600, //in sec session
   
