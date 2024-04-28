@@ -28,7 +28,7 @@ const axios=require("axios");
 const uniqid=require("uniqid");
 const sha256=require("sha256");
 const { log } = require("console");
-
+const MongoStore = require('connect-mongo');
 //TESTING PURPOSE
 const PHONE_PE_HOST_URL="https://api-preprod.phonepe.com/apis/hermes";
 const MERCHANT_ID="PGTESTPAYUAT";
@@ -56,9 +56,22 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-
+const store=MongoStore.create({
+  //  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    mongoUrl:MONGO_CLOUD_URL,
+    crypto:{
+      secret:process.env.SECRET ,
+    },
+    touchAfter:24*3600, //in sec session
+  
+  });
+  
+  store.on("error",()=>{
+    console.log("error in mongo session store",err);
+  })
 
 const sessionOptions={
+	store,
     secret:"hello gf",
     resave:false,
     saveUninitialized:true,
